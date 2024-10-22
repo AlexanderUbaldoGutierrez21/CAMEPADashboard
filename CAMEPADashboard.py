@@ -92,10 +92,10 @@ with st.container():
     col1, col2 = st.columns(2)
 with st.container(border=True):
     st.plotly_chart(fig_ev_sales, use_container_width=True)
-    st.markdown("<u>This chart represents the total vehicle sales from 2015 to 2024.</u>", unsafe_allow_html=True)
+    st.markdown("<u style='font-size: 12px;'>Data Updated: August 2024.</u>", unsafe_allow_html=True)
 with st.container(border=True):
     st.plotly_chart(fig_hybrid_sales, use_container_width=True)
-    st.markdown("<u>This chart represents the total vehicle sales from 2015 to 2024.</u>", unsafe_allow_html=True)
+    st.markdown("<u style='font-size: 12px;'>Data Updated: August 2024.</u>", unsafe_allow_html=True)
 with st.container(border=True):
     st.plotly_chart(fig_market_sales, use_container_width=True)
-    st.markdown("<u>This chart represents the total vehicle sales from 2015 to 2024.</u>", unsafe_allow_html=True)
+    st.markdown("<u style='font-size: 12px;'>Data Updated: August 2024.</u>", unsafe_allow_html=True)
