@@ -23,9 +23,10 @@ def load_data():
 
 df = load_data()
 
-st.sidebar.image("Logo.png", width=100)
+st.sidebar.image("Logo.png", width=120)
 
 # Side Bar
+st.title("E-Mobility Chamber of Panama")
 st.sidebar.header("⚙️ Settings")
 year_column = 'Years' if 'Years' in df.columns else df.columns[0]
 years = st.sidebar.multiselect(
@@ -54,9 +55,9 @@ col3.metric("Total Vehicle Sales", f"{total_market:,}")
 st.markdown("---")
 
 # SMALLER KPI'S
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("font-size: 14px; Avg. EV Sales per Year", f"{total_ev / len(years):,.2f}")
-col2.metric("font-size: 14px; Avg. Hybrid Sales per Year", f"{total_hybrid / len(years):,.2f}")
+col1, col2 = st.columns(2)
+col1.metric("Avg. EV Sales per Year", f"{total_ev / len(years):,.2f}")
+col2.metric("Avg. Hybrid Sales per Year", f"{total_hybrid / len(years):,.2f}")
 
 st.markdown("---")
 
