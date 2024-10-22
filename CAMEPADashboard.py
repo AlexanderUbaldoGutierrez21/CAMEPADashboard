@@ -55,8 +55,8 @@ st.markdown("---")
 
 # SMALLER KPI'S
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("Avg. EV Sales per Year", f"{total_ev / len(years):,.2f}")
-col2.metric("Avg. Hybrid Sales per Year", f"{total_hybrid / len(years):,.2f}")
+col1.metric("font-size: 14px; Avg. EV Sales per Year", f"{total_ev / len(years):,.2f}")
+col2.metric("font-size: 14px; Avg. Hybrid Sales per Year", f"{total_hybrid / len(years):,.2f}")
 
 st.markdown("---")
 
@@ -92,10 +92,10 @@ with st.container():
     col1, col2 = st.columns(2)
 with st.container(border=True):
     st.plotly_chart(fig_ev_sales, use_container_width=True)
-    st.markdown("<u style='font-size: 12px;'>Data Updated: August 2024.</u>", unsafe_allow_html=True)
+    st.markdown("<u style='font-size: 12px;'>Data Updated: August 2024</u>", unsafe_allow_html=True)
 with st.container(border=True):
     st.plotly_chart(fig_hybrid_sales, use_container_width=True)
-    st.markdown("<u style='font-size: 12px;'>Data Updated: August 2024.</u>", unsafe_allow_html=True)
+    st.markdown("<u style='font-size: 12px;'>Data Updated: August 2024</u>", unsafe_allow_html=True)
 with st.container(border=True):
     st.plotly_chart(fig_market_sales, use_container_width=True)
-    st.markdown("<u style='font-size: 12px;'>Data Updated: August 2024.</u>", unsafe_allow_html=True)
+    st.markdown("<u style='font-size: 12px;'>Data Updated: August 2024</u>", unsafe_allow_html=True)
