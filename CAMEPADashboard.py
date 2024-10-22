@@ -23,7 +23,7 @@ def load_data():
 
 df = load_data()
 
-st.sidebar.image("Logo.png", width=150)
+st.sidebar.image("Logo.png", width=100)
 
 # Side Bar
 st.sidebar.header("⚙️ Settings")
@@ -55,10 +55,8 @@ st.markdown("---")
 
 # SMALLER KPI'S
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("Average EV Sales per Year", f"{total_ev / len(years):,.2f}")
-col2.metric("Average Hybrid Sales per Year", f"{total_hybrid / len(years):,.2f}")
-col3.metric("EV Sales as % of Total Sales", f"{(total_ev / total_market) * 100:.2f}%")
-col4.metric("Hybrid Sales as % of Total Sales", f"{(total_hybrid / total_market) * 100:.2f}%")
+col1.metric("Avg. EV Sales per Year", f"{total_ev / len(years):,.2f}")
+col2.metric("Avg. Hybrid Sales per Year", f"{total_hybrid / len(years):,.2f}")
 
 st.markdown("---")
 
