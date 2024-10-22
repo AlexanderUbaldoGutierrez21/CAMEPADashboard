@@ -55,7 +55,7 @@ col3.metric("Total Vehicle Sales", f"{total_market:,}")
 st.markdown("---")
 
 # SMALLER KPI'S
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 col1.metric("Avg. EV Sales per Year", f"{total_ev / len(years):,.2f}")
 col2.metric("Avg. Hybrid Sales per Year", f"{total_hybrid / len(years):,.2f}")
 
