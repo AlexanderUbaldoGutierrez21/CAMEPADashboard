@@ -90,21 +90,18 @@ fig_market_sales = create_bar_chart(df_selection, year_column, df_selection.colu
 # Display charts
 with st.container():
     col1, col2 = st.columns(2)
-    
+
     # Create a bordered container for Electric Vehicle (BEV) Sales chart
     with col1:
-        st.markdown("<div style='border: 2px solid #121840; padding: 10px;'>", unsafe_allow_html=True)
+        st.markdown("<h4 style='text-align: center;'>Electric Vehicle (BEV) Sales</h4>", unsafe_allow_html=True)
         st.plotly_chart(fig_ev_sales, use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
-    
+
     # Create a bordered container for Hybrid Vehicle Sales chart
     with col2:
-        st.markdown("<div style='border: 2px solid #121840; padding: 10px;'>", unsafe_allow_html=True)
+        st.markdown("<h4 style='text-align: center;'>Hybrid Vehicle Sales</h4>", unsafe_allow_html=True)
         st.plotly_chart(fig_hybrid_sales, use_container_width=True)
-        st.markdown("</div>", unsafe_allow_html=True)
 
 # Create a bordered container for Vehicle Sales chart
 with st.container():
-    st.markdown("<div style='border: 2px solid #121840; padding: 10px;'>", unsafe_allow_html=True)
+    st.markdown("<h4 style='text-align: center;'>Total Vehicle Sales</h4>", unsafe_allow_html=True)
     st.plotly_chart(fig_market_sales, use_container_width=True)
-    st.markdown("</div>", unsafe_allow_html=True)
