@@ -45,25 +45,20 @@ st.markdown("---")
 total_ev = int(df_selection.get("Unit EVs Sold", df_selection.iloc[:, 3]).sum())
 total_hybrid = int(df_selection.get("Unit Hybrid Vehicles Sold", df_selection.iloc[:, 2]).sum())
 total_market = int(df_selection.get("Unit Vehicles Sold", df_selection.iloc[:, 1]).sum())
-total_hybridper = int(df_selection.get("Market Share Hybrids Cars Total Market", df_selection.iloc[:, 5]).sum())
-total_evper = int(df_selection.get("Market Share BEV - Total Market", df_selection.iloc[:, 4]).sum())
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Total Electric Vehicle (BEV) Sales", f"{total_ev:,}")
 col2.metric("Total Hybrid Vehicle Sales", f"{total_hybrid:,}")
 col3.metric("Total Vehicle Sales", f"{total_market:,}")
-col1.metric("Electric Vehicle (BEV) Market Share 2015-2024", f"{total_evper:,}")
-col2.metric("Hybrid Vehicle (BEV) Market Share 2015-2024", f"{total_hybridper:,}")
 
 st.markdown("---")
 
 # SMALLER KPI'S
-col1, col2 = st.columns(2)
-col1.markdown("<h5 style='font-size: 14px;'>Average EV Sales per Year</h5>", unsafe_allow_html=True)
-col1.metric("", f"{total_ev / len(years):,.2f}")
-
-col2.markdown("<h5 style='font-size: 14px;'>Average Hybrid Sales per Year</h5>", unsafe_allow_html=True)
-col2.metric("", f"{total_hybrid / len(years):,.2f}")
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Average EV Sales per Year", f"{total_ev / len(years):,.2f}")
+col2.metric("Average Hybrid Sales per Year", f"{total_hybrid / len(years):,.2f}")
+col3.metric("EV Sales as % of Total Sales", f"{(total_ev / total_market) * 100:.2f}%")
+col4.metric("Hybrid Sales as % of Total Sales", f"{(total_hybrid / total_market) * 100:.2f}%")
 
 st.markdown("---")
 
@@ -86,10 +81,10 @@ def create_bar_chart(data, x, y, title, color="#121840"):
     return fig
 
 # Electric Vehicle (BEV) Sales 2015-2024
-fig_ev_sales = create_bar_chart(df_selection, year_column, df_selection.columns[3], "Electric Vehicle (BEV) Sales 2015-2024")
+fig_ev_sales = create_bar_chart(df_selection, year_column, df_selection.columns[3], "Electric Vehicles (BEV) Sales 2015-2024")
 
 # Hybrid Vehicle Sales 2015-2024
-fig_hybrid_sales = create_bar_chart(df_selection, year_column, df_selection.columns[2], "Hybrid Vehicle Sales 2015-2024")
+fig_hybrid_sales = create_bar_chart(df_selection, year_column, df_selection.columns[2], "Hybrid Vehicles Sales 2015-2024")
 
 # Vehicle Sales 2015-2024
 fig_market_sales = create_bar_chart(df_selection, year_column, df_selection.columns[1], "Vehicle Sales 2015-2024")
