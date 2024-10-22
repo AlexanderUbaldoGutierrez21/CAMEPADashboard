@@ -79,16 +79,21 @@ def create_bar_chart(data, x, y, title, color="#121840"):
     return fig
 
 # Electric Vehicle (BEV) Sales 2015-2024
-fig_ev_sales = create_bar_chart(df_selection, year_column, df_selection.columns[3], "Electric Vehicles (BEV) Sales 2015-2024")
+fig_ev_sales = create_bar_chart(df_selection, year_column, df_selection.columns[3], "Electric Vehicle (BEV) Sales 2015-2024")
 
 # Hybrid Vehicle Sales 2015-2024
-fig_hybrid_sales = create_bar_chart(df_selection, year_column, df_selection.columns[2], "Hybrid Vehicles Sales 2015-2024")
+fig_hybrid_sales = create_bar_chart(df_selection, year_column, df_selection.columns[2], "Hybrid Vehicle Sales 2015-2024")
 
 # Vehicle Sales 2015-2024
 fig_market_sales = create_bar_chart(df_selection, year_column, df_selection.columns[1], "Vehicle Sales 2015-2024")
 
 # Display charts
-col1, col2 = st.columns(2)
-col1.plotly_chart(fig_ev_sales, use_container_width=True) 
-col2.plotly_chart(fig_hybrid_sales, use_container_width=True)  
-st.plotly_chart(fig_market_sales, use_container_width=True) 
+with st.container():
+    col1, col2 = st.columns(2)
+    with st.container(border=True):
+        col1.plotly_chart(fig_ev_sales, use_container_width=True)
+    with st.container(border=True):
+        col2.plotly_chart(fig_hybrid_sales, use_container_width=True)
+
+with st.container(border=True):
+    st.plotly_chart(fig_market_sales, use_container_width=True)
