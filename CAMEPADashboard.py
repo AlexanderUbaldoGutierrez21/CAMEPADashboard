@@ -92,13 +92,19 @@ with st.container():
     col1, col2 = st.columns(2)
     
     # Create a bordered container for Electric Vehicle (BEV) Sales chart
-    with st.container():
-        col1.plotly_chart(fig_ev_sales, use_container_width=True)
+    with col1:
+        st.markdown("<div style='border: 2px solid #121840; padding: 10px;'>", unsafe_allow_html=True)
+        st.plotly_chart(fig_ev_sales, use_container_width=True)
+        st.markdown("</div>", unsafe_allow_html=True)
     
     # Create a bordered container for Hybrid Vehicle Sales chart
-    with st.container():
-        col2.plotly_chart(fig_hybrid_sales, use_container_width=True)
+    with col2:
+        st.markdown("<div style='border: 2px solid #121840; padding: 10px;'>", unsafe_allow_html=True)
+        st.plotly_chart(fig_hybrid_sales, use_container_width=True)
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # Create a bordered container for Vehicle Sales chart
 with st.container():
+    st.markdown("<div style='border: 2px solid #121840; padding: 10px;'>", unsafe_allow_html=True)
     st.plotly_chart(fig_market_sales, use_container_width=True)
+    st.markdown("</div>", unsafe_allow_html=True)
