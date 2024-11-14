@@ -26,7 +26,7 @@ df = load_data()
 st.sidebar.image("Logo.png", width=120)
 
 # Side Bar
-st.sidebar.title("E-Mobility Chamber of Panama")
+st.sidebar.title("E-Mobility Chamber of Panama 2024")
 st.sidebar.header("⚙️ Settings")
 year_column = 'Years' if 'Years' in df.columns else df.columns[0]
 years = st.sidebar.multiselect(
