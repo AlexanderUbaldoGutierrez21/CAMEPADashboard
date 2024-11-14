@@ -9,10 +9,8 @@ st.set_page_config(
 )
 
 # Load Data from Excel file
-import time
-
 @st.cache_data
-def load_data(timestamp):
+def load_data():
     df = pd.read_excel(
         io="EV Growth Panama.xlsx",
         engine="openpyxl",
@@ -23,8 +21,7 @@ def load_data(timestamp):
     df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')
     return df
 
-# Call load_data with a timestamp
-df = load_data(time.time())
+df = load_data()
 
 st.sidebar.image("Logo.png", width=120)
 
