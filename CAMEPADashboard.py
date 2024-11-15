@@ -93,3 +93,9 @@ with st.container(border=True):
 with st.container(border=True):
     st.plotly_chart(fig_market_sales, use_container_width=True)
     st.markdown("<u style='font-size: 12px;'>Data Updated: October 2024</u>", unsafe_allow_html=True)
+  
+# Run and Update App   
+    from streamlit.runtime.scriptrunner import RerunData, RerunException
+
+def clear_streamlit_cache():
+    raise RerunException(RerunData())
