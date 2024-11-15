@@ -54,13 +54,6 @@ col3.metric("Total Vehicle Sales", f"{total_market:,}")
 
 st.markdown("---")
 
-# SMALLER KPI'S
-col1, col2, col3 = st.columns(3)
-col1.metric("Avg. EV Sales per Year", f"{total_ev / len(years):,.2f}")
-col2.metric("Avg. Hybrid Sales per Year", f"{total_hybrid / len(years):,.2f}")
-
-st.markdown("---")
-
 # Function to create bar chart
 def create_bar_chart(data, x, y, title, color="#121840"):
     fig = px.bar(
