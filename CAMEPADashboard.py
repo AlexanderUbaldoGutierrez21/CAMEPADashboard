@@ -45,12 +45,10 @@ st.markdown("---")
 # TOP KPI'S 
 total_ev = int(df_selection.get("Unit EVs Sold", df_selection.iloc[:, 3]).sum())
 total_hybrid = int(df_selection.get("Unit Hybrid Vehicles Sold", df_selection.iloc[:, 2]).sum())
-total_market = int(df_selection.get("Unit Vehicles Sold", df_selection.iloc[:, 1]).sum())
 
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 col1.metric("Total Electric Vehicle (BEV) Sales", f"{total_ev:,}")
 col2.metric("Total Hybrid Vehicle Sales", f"{total_hybrid:,}")
-col3.metric("Total Vehicle Sales", f"{total_market:,}")
 
 st.markdown("---")
 
@@ -78,9 +76,6 @@ fig_ev_sales = create_bar_chart(df_selection, year_column, df_selection.columns[
 # Hybrid Vehicle Sales 2015-2024
 fig_hybrid_sales = create_bar_chart(df_selection, year_column, df_selection.columns[2], "Hybrid Vehicle Sales 2015-2024")
 
-# Vehicle Sales 2015-2024
-fig_market_sales = create_bar_chart(df_selection, year_column, df_selection.columns[1], "Vehicle Sales 2015-2024")
-
 # Display charts
 with st.container():
     col1, col2 = st.columns(2)
@@ -89,9 +84,6 @@ with st.container(border=True):
     st.markdown("<u style='font-size: 12px;'>Data Updated: October 2024</u>", unsafe_allow_html=True)
 with st.container(border=True):
     st.plotly_chart(fig_hybrid_sales, use_container_width=True)
-    st.markdown("<u style='font-size: 12px;'>Data Updated: October 2024</u>", unsafe_allow_html=True)
-with st.container(border=True):
-    st.plotly_chart(fig_market_sales, use_container_width=True)
     st.markdown("<u style='font-size: 12px;'>Data Updated: October 2024</u>", unsafe_allow_html=True)
   
 # Run and Update App   
