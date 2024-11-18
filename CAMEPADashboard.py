@@ -43,8 +43,8 @@ st.title("Panama EV Sales Outlook 2015-2024")
 st.markdown("---")
 
 # TOP KPI'S 
-total_ev = int(df_selection.get("Unit EVs Sold", df_selection.iloc[:, 1]).sum())
-total_hybrid = int(df_selection.get("Unit Hybrid Vehicles Sold", df_selection.iloc[:, 2]).sum())
+total_ev = int(df_selection.get("Unit EVs Sold", df_selection.iloc[:, 2]).sum())
+total_hybrid = int(df_selection.get("Unit Hybrid Vehicles Sold", df_selection.iloc[:, 1]).sum())
 
 col1, col2 = st.columns(2)
 col1.metric("Total Electric Vehicle (BEV) Sales", f"{total_ev:,}")
@@ -71,10 +71,10 @@ def create_bar_chart(data, x, y, title, color="#121840"):
     return fig
 
 # Electric Vehicle (BEV) Sales 2015-2024
-fig_ev_sales = create_bar_chart(df_selection, year_column, df_selection.columns[1], "Electric Vehicle (BEV) Sales 2015-2024")
+fig_ev_sales = create_bar_chart(df_selection, year_column, df_selection.columns[2], "Electric Vehicle (BEV) Sales 2015-2024")
 
 # Hybrid Vehicle Sales 2015-2024
-fig_hybrid_sales = create_bar_chart(df_selection, year_column, df_selection.columns[2], "Hybrid Vehicle Sales 2015-2024")
+fig_hybrid_sales = create_bar_chart(df_selection, year_column, df_selection.columns[1], "Hybrid Vehicle Sales 2015-2024")
 
 # Display charts
 with st.container():
